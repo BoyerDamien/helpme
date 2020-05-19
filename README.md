@@ -5,15 +5,15 @@ Ce programme utilise l'API de [Stackexchange](https://api.stackexchange.com/docs
 
 ## Examples
 ```bash
-$ helpme segfault 2
+$ helpme "indentation error" 2                                                                                    (base) 
 
-Titre: Interpreting segfault messages
-Lien: https://stackoverflow.com/questions/2549214/interpreting-segfault-messages
-Score: 56.000000
+Titre: Indentation error
+Lien: https://stackoverflow.com/questions/26615080/indentation-error
+Score: 0.000000
 
-Titre: What is a bus error?
-Lien: https://stackoverflow.com/questions/212466/what-is-a-bus-error
-Score: 252.000000
+Titre: How to change indentation in Visual Studio Code?
+Lien: https://stackoverflow.com/questions/34174207/how-to-change-indentation-in-visual-studio-code
+Score: 332.000000
 ```
 Cette commande affichera sur la sortie standard les 2 pages de stackexchange les plus pertinentes par rapport à l'erreur entrée.
 
