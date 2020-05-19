@@ -1,4 +1,0 @@
-{
-    "terminal.integrated.inheritEnv": true,
-    "terminal.integrated.shell.linux": "/usr/bin/fish"
-}
