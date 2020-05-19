@@ -14,7 +14,7 @@ import (
 func buildURL(content string) string {
 	first := "https://api.stackexchange.com/2.2/search/advanced?order=desc&sort=relevance&q="
 	second := "&accepted=True&site=stackoverflow"
-	return first + strings.ReplaceAll(content, " ", "+") + second
+	return first + strings.Replace(content, " ", "+", -1) + second
 }
 
 /* Fonction qui affiche les resultats formatés de l'API stackexchange */
@@ -47,7 +47,6 @@ func fetch(url string, n int) {
 	}
 	result, err := ioutil.ReadAll(response.Body)
 	response.Body.Close()
-	fmt.Println(url)
 	if err != nil {
 		panic(err)
 	}
