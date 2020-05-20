@@ -46,9 +46,10 @@ $ helpme -h
 Usage of helpme -> helpme <flags> <research content>
 
 Flags   :
-        -n : Number of elements to display
+        -n : Number of elements to display  (-n=20)
         -h : Help
         -s : Sort elements by score
+        -t : Filter post not tagged <tag>   (-t=c++)
 ```
 PS: Les flags sont facultatifs
 
