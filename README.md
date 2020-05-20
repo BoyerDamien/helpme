@@ -29,8 +29,10 @@ Score: 12.00
 Cette commande affichera sur la sortie standard les 10 pages de stackexchange correspondant le plus à la recherche.
 
 La commande en détail:
--s -> Ordonne les éléments par score
--n=10 -> Selectionne les 10 éléments les plus pertinants
+
+-s : Ordonne les éléments par score
+
+-n=10 : Selectionne les 10 éléments les plus pertinants
 
 ## Syntaxe:
 ```bash
