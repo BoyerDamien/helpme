@@ -13,6 +13,8 @@ const (
 	second = "&accepted=True&site=stackoverflow"
 )
 
+/* L'objet request permettant de stocker les infos nécessaires à la requête */
+
 type Request struct {
 	content string
 	url     string
