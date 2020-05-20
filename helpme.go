@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"os"
+	"sort"
 	"strconv"
 	"strings"
 )
@@ -29,7 +30,25 @@ func displayResults(results []interface{}, n int) {
 	}
 	for key := range results[:n] {
 		conv = results[key].(map[string]interface{})
-		fmt.Printf("\nTitre: %s\nLien: %s\nScore: %f\n", conv["title"], conv["link"], conv["score"])
+		fmt.Printf("\nTitre: %s\nLien: %s\nScore: %.2f\n", conv["title"], conv["link"], conv["score"])
+	}
+}
+
+func displayResultsSorted(results []interface{}, n int) {
+	var resList []map[string]interface{}
+
+	if n == 0 {
+		n = len(results)
+	}
+
+	for key := range results[:n] {
+		resList = append(resList, results[key].(map[string]interface{}))
+	}
+	sort.Slice(resList, func(i, j int) bool {
+		return resList[j]["score"].(float64) > resList[i]["score"].(float64)
+	})
+	for _, res := range resList {
+		fmt.Printf("\nTitre: %s\nLien: %s\nScore: %.2f\n", res["title"], res["link"], res["score"])
 	}
 }
 
@@ -39,14 +58,14 @@ func displayResults(results []interface{}, n int) {
 	-	Traîte la réponse de l'API
 	-	Affiche les résultats dans le terminal
 */
-func fetch(url string, n int) {
+func fetch(url string, n int, sortFlag bool) {
 	var data map[string]interface{}
 	response, err := http.Get(url)
 	if err != nil {
 		panic(err)
 	}
 	result, err := ioutil.ReadAll(response.Body)
-	response.Body.Close()
+	_ = response.Body.Close()
 	if err != nil {
 		panic(err)
 	}
@@ -54,21 +73,30 @@ func fetch(url string, n int) {
 		panic(err)
 	}
 	items := data["items"].([]interface{})
-	displayResults(items, n)
+	if sortFlag {
+		displayResultsSorted(items, n)
+	} else {
+		displayResults(items, n)
+	}
 }
 
 func main() {
 	args := os.Args
+	sortFlag := false
+
 	if len(args) > 1 {
 		url := buildURL(args[1])
+		if len(args) == 4 && args[3] == "-s" {
+			sortFlag = true
+		}
 		if len(args) == 3 {
 			n, err := strconv.Atoi(args[2])
 			if err != nil {
 				panic("The second argument is not a number")
 			}
-			fetch(url, n)
+			fetch(url, n, sortFlag)
 		} else {
-			fetch(url, 0)
+			fetch(url, 0, sortFlag)
 		}
 	} else {
 		fmt.Println("Error: no arguments were provided")
