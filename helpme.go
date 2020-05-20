@@ -9,12 +9,14 @@ func main() {
 	sorted := flag.Bool("s", false, "Sort elements by score")
 	help := flag.Bool("h", false, "Help")
 	number := flag.Int("n", 0, "Number of elements to display")
+	tagMatch := flag.String("t", "", "Tag to match")
+
 	flag.Parse()
 	if (len(flag.CommandLine.Args()) == 0) || (*help) {
 		fmt.Println(helpmeUsage)
 	} else if len(flag.Args()) == 1 {
 		tail := flag.Args()
-		req := Request{content: tail[0], url: first, sort: *sorted, n: *number}
+		req := Request{content: tail[0], url: first, sort: *sorted, n: *number, tagMatch: *tagMatch}
 		req.buildURL()
 		req.fetch()
 	} else {

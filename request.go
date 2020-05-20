@@ -16,10 +16,11 @@ const (
 /* L'objet request permettant de stocker les infos nécessaires à la requête */
 
 type Request struct {
-	content string
-	url     string
-	sort    bool
-	n       int
+	content  string
+	url      string
+	tagMatch string
+	sort     bool
+	n        int
 }
 
 /* Méthode qui construit une url de l'API stackexchange à partir d'un contenu de recherche*/
@@ -44,7 +45,22 @@ func (v *Request) displayResults(results []interface{}) {
 	}
 	for key := range results[:v.n] {
 		conv = results[key].(map[string]interface{})
-		fmt.Printf("\nTitre: %s\nLien: %s\nScore: %.2f\n", conv["title"], conv["link"], conv["score"])
+
+		if v.tagMatch != "" {
+			if Find(conv["tags"].([]interface{}), strings.ToLower(v.tagMatch)) {
+				fmt.Printf("\nTitre: %s\nLien: %s\nTags: ", conv["title"], conv["link"])
+				for _, tag := range conv["tags"].([]interface{}) {
+					fmt.Printf("%s, ", tag)
+				}
+				fmt.Printf("\nScore: %.2f\n", conv["score"])
+			}
+		} else {
+			fmt.Printf("\nTitre: %s\nLien: %s\nTags: ", conv["title"], conv["link"])
+			for _, tag := range conv["tags"].([]interface{}) {
+				fmt.Printf("%s, ", tag)
+			}
+			fmt.Printf("\nScore: %.2f\n", conv["score"])
+		}
 	}
 }
 
