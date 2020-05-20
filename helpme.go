@@ -24,7 +24,7 @@ func buildURL(content string) string {
 */
 func displayResults(results []interface{}, n int) {
 	var conv map[string]interface{}
-	if n == 0 {
+	if (n == 0) || (n > len(results)) {
 		n = len(results)
 	}
 	for key := range results[:n] {
