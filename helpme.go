@@ -6,9 +6,9 @@ import (
 )
 
 func main() {
-	sorted := flag.Bool("s", false, "Sorted")
+	sorted := flag.Bool("s", false, "Sort elements by score")
 	help := flag.Bool("h", false, "Help")
-	number := flag.Int("n", 0, "Number of items to display")
+	number := flag.Int("n", 0, "Number of elements to display")
 	flag.Parse()
 	if (len(flag.CommandLine.Args()) == 0) || (*help) {
 		fmt.Println(helpmeUsage)
