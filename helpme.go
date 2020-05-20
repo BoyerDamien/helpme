@@ -30,7 +30,14 @@ func displayResults(results []interface{}, n int) {
 	}
 	for key := range results[:n] {
 		conv = results[key].(map[string]interface{})
-		fmt.Printf("\nTitre: %s\nLien: %s\nScore: %.2f\n", conv["title"], conv["link"], conv["score"])
+		if conv["is_answered"].(bool) {
+			conv["title"] = fmt.Sprintf("[ANSWERED] %s", conv["title"])
+		}
+		fmt.Printf("\nTitre: %s\nLien: %s\nTags: ", conv["title"], conv["link"])
+		for _, tag := range conv["tags"].([]interface{}) {
+			fmt.Printf("%s, ", tag)
+		}
+		fmt.Printf("\nScore: %2.f\n", conv["score"])
 	}
 }
 
@@ -47,8 +54,16 @@ func displayResultsSorted(results []interface{}, n int) {
 	sort.Slice(resList, func(i, j int) bool {
 		return resList[j]["score"].(float64) > resList[i]["score"].(float64)
 	})
+
 	for _, res := range resList {
-		fmt.Printf("\nTitre: %s\nLien: %s\nScore: %.2f\n", res["title"], res["link"], res["score"])
+		if !res["is_answered"].(bool) {
+			res["title"] = fmt.Sprintf("[UN-ANSWERED] %s", res["title"])
+		}
+		fmt.Printf("\nTitre: %s\nLien: %s\nTags: ", res["title"], res["link"])
+		for _, tag := range res["tags"].([]interface{}) {
+			fmt.Printf("%s, ", tag)
+		}
+		fmt.Printf("\nScore: %2.f\n", res["score"])
 	}
 }
 
