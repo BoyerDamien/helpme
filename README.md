@@ -10,15 +10,15 @@ Titre: IndentationError: unindent does not match any outer indentation level
 Lien: https://stackoverflow.com/questions/492387/indentationerror-unindent-does-not-match-any-outer-indentation-level
 Score: 575.00
 
-Titre: How does IPython&#39;s magic %paste work?
+Titre: How does IPython's magic paste work?
 Lien: https://stackoverflow.com/questions/10886946/how-does-ipythons-magic-paste-work
 Score: 92.00
 
-Titre: I&#39;m getting an IndentationError. How do I fix it?
+Titre: I'm getting an IndentationError. How do I fix it?
 Lien: https://stackoverflow.com/questions/45621722/im-getting-an-indentationerror-how-do-i-fix-it
 Score: 39.00
 
-Titre: PyCharm shows &quot;PEP8: expected 2 blank lines, found 1&quot;
+Titre: PyCharm shows pep8 expected 2 blank lines, found 1;
 Lien: https://stackoverflow.com/questions/40275866/pycharm-shows-pep8-expected-2-blank-lines-found-1
 Score: 31.00
 
