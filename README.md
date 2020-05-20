@@ -3,7 +3,7 @@
 Un petit outil en ligne de commande écrit en Go facilitant la recherche de solutions liées à une erreur.
 Ce programme utilise l'API de [Stackexchange](https://api.stackexchange.com/docs).
 
-## Examples
+## Exemples
 ```bash
 $ helpme -s -n=5 "unindent does not match any outer indentation level" 
 
