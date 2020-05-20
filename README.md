@@ -35,7 +35,7 @@ La commande en détail:
 
 -n=10 : Selectionne les 10 éléments les plus pertinents
 
-## Syntaxe:
+## Syntaxe
 ```bash
 $ helpme <flags> <contenu de la recherche>
 ```
