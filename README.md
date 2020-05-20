@@ -5,23 +5,49 @@ Ce programme utilise l'API de [Stackexchange](https://api.stackexchange.com/docs
 
 ## Examples
 ```bash
-$ helpme segfault 2
+$ helpme -s -n=5 "unindent does not match any outer indentation level" 
+Titre: IndentationError: unindent does not match any outer indentation level
+Lien: https://stackoverflow.com/questions/492387/indentationerror-unindent-does-not-match-any-outer-indentation-level
+Score: 575.00
 
-Titre: Interpreting segfault messages
-Lien: https://stackoverflow.com/questions/2549214/interpreting-segfault-messages
-Score: 56.000000
+Titre: How does IPython&#39;s magic %paste work?
+Lien: https://stackoverflow.com/questions/10886946/how-does-ipythons-magic-paste-work
+Score: 92.00
 
-Titre: What is a bus error?
-Lien: https://stackoverflow.com/questions/212466/what-is-a-bus-error
-Score: 252.000000
+Titre: I&#39;m getting an IndentationError. How do I fix it?
+Lien: https://stackoverflow.com/questions/45621722/im-getting-an-indentationerror-how-do-i-fix-it
+Score: 39.00
+
+Titre: PyCharm shows &quot;PEP8: expected 2 blank lines, found 1&quot;
+Lien: https://stackoverflow.com/questions/40275866/pycharm-shows-pep8-expected-2-blank-lines-found-1
+Score: 31.00
+
+Titre: (python) docstring is causing indentation error
+Lien: https://stackoverflow.com/questions/2243009/python-docstring-is-causing-indentation-error
+Score: 12.00
 ```
-Cette commande affichera sur la sortie standard les 2 pages de stackexchange les plus pertinentes par rapport à l'erreur entrée.
+Cette commande affichera sur la sortie standard les 10 pages de stackexchange correspondant le plus à la recherche.
+
+La commande en détail:
+-s -> Ordonne les éléments par score
+-n=10 -> Selectionne les 10 éléments les plus pertinants
 
 ## Syntaxe:
 ```bash
-$ helpme <erreur> <nombre de pages> [-s]
+$ helpme <flags> <contenu de la recherche>
 ```
-L'option -s permet de trier les resultats par score
+PS: Les flags sont facultatifs
+
+Une option "help" est disponible:
+```bash
+$ helpme -h
+Usage of helpme -> helpme <flags> <research content>
+
+Flags   :
+        -n : Number of elements to display
+        -h : Help
+        -s : Sort elements by score
+```
 
 ## Installation
 
