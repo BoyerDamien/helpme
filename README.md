@@ -6,6 +6,7 @@ Ce programme utilise l'API de [Stackexchange](https://api.stackexchange.com/docs
 ## Examples
 ```bash
 $ helpme -s -n=5 "unindent does not match any outer indentation level" 
+
 Titre: IndentationError: unindent does not match any outer indentation level
 Lien: https://stackoverflow.com/questions/492387/indentationerror-unindent-does-not-match-any-outer-indentation-level
 Score: 575.00
