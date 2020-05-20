@@ -38,7 +38,6 @@ La commande en détail:
 ```bash
 $ helpme <flags> <contenu de la recherche>
 ```
-PS: Les flags sont facultatifs
 
 Une option "help" est disponible:
 ```bash
@@ -50,6 +49,7 @@ Flags   :
         -h : Help
         -s : Sort elements by score
 ```
+PS: Les flags sont facultatifs
 
 ## Installation
 
