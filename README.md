@@ -33,7 +33,7 @@ La commande en détail:
 
 -s : Ordonne les éléments par score
 
--n=10 : Selectionne les 10 éléments les plus pertinents
+-n=5 : Selectionne les 5 éléments les plus pertinents
 
 ## Syntaxe
 ```bash
