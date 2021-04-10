@@ -57,6 +57,5 @@ PS: Les flags sont facultatifs
 
 L'installation nécessite la présence de Go sur votre système -> [Installation de go](https://golang.org/dl/) 
 ```bash
-$ git clone https://github.com/BoyerDamien/helpme.git
-$ cd helpme && go build . && sudo mv helpme /usr/bin
+$ go install github.com/BoyerDamien/helpme
 ```
