@@ -27,7 +27,7 @@ Titre: (python) docstring is causing indentation error
 Lien: https://stackoverflow.com/questions/2243009/python-docstring-is-causing-indentation-error
 Score: 12.00
 ```
-Cette commande affichera sur la sortie standard les 10 pages de stackexchange correspondant le plus à la recherche.
+Cette commande affichera sur la sortie standard les 5 pages de stackexchange correspondant le plus à la recherche.
 
 La commande en détail:
 
